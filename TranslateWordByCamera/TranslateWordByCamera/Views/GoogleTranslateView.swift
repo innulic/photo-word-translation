@@ -9,6 +9,7 @@ import SwiftUI
 import Alamofire
 
 var apiKey: String = "AIzaSyBGEAcdHI-Kw0ltEUdcmroF7pFboOFYvcg"
+var translateServiceBaseUrl = "https://translation.googleapis.com/language/translate/v2"
 
 struct GoogleTranslateView: View {
     @State private var translation: String = ""
@@ -29,7 +30,7 @@ struct GoogleTranslateView: View {
             "target": "ru",
             "key": apiKey
         ]
-        AF.request("https://translation.googleapis.com/language/translate/v2",
+        AF.request(translateServiceBaseUrl,
                    method: .post,
                    parameters: parameters)
             .validate()
