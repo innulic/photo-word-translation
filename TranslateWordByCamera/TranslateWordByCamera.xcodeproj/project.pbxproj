@@ -17,6 +17,8 @@
 		B75AE30F2BDC61180020B259 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B75AE30E2BDC61180020B259 /* Alamofire */; };
 		B75AE3112BDC61290020B259 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B75AE3102BDC61290020B259 /* Alamofire */; };
 		B77A03492BDFAEA800E61633 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B77A03482BDFAEA800E61633 /* Alamofire */; };
+		B7B035462C3B37BC00C4BE44 /* CameraPermissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B035452C3B37BC00C4BE44 /* CameraPermissionController.swift */; };
+		B7B0354A2C3B473F00C4BE44 /* CameraViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B035492C3B473F00C4BE44 /* CameraViewControllerWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		B75AE2E92BDBC85E0020B259 /* TranslateWordByCameraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateWordByCameraUITests.swift; sourceTree = "<group>"; };
 		B75AE2EB2BDBC85E0020B259 /* TranslateWordByCameraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateWordByCameraUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B75AE3082BDC4DB20020B259 /* GoogleTranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateView.swift; sourceTree = "<group>"; };
+		B7B035452C3B37BC00C4BE44 /* CameraPermissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionController.swift; sourceTree = "<group>"; };
+		B7B035492C3B473F00C4BE44 /* CameraViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewControllerWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 		B75AE2CC2BDBC85B0020B259 /* TranslateWordByCamera */ = {
 			isa = PBXGroup;
 			children = (
+				B7B035442C3B378B00C4BE44 /* Controllers */,
 				B75AE3072BDBD7180020B259 /* Resources */,
 				B75AE3052BDBD6EE0020B259 /* Model */,
 				B75AE3032BDBD6870020B259 /* Views */,
@@ -178,6 +183,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7B035442C3B378B00C4BE44 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B7B035492C3B473F00C4BE44 /* CameraViewControllerWrapper.swift */,
+				B7B035452C3B37BC00C4BE44 /* CameraPermissionController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +340,8 @@
 			files = (
 				B75AE3092BDC4DB20020B259 /* GoogleTranslateView.swift in Sources */,
 				B75AE2CE2BDBC85B0020B259 /* TranslateWordByCameraApp.swift in Sources */,
+				B7B035462C3B37BC00C4BE44 /* CameraPermissionController.swift in Sources */,
+				B7B0354A2C3B473F00C4BE44 /* CameraViewControllerWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,8 +415,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MMHZ56RXAS;
+				"DEVELOPMENT_TEAM[sdk=*]" = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -419,6 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera to record videos and photos.";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -462,8 +482,10 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MMHZ56RXAS;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;

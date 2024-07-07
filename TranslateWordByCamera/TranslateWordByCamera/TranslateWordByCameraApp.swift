@@ -11,7 +11,8 @@ import SwiftUI
 struct TranslateWordByCameraApp: App {
     var body: some Scene {
         WindowGroup {
-            GoogleTranslateView()
+            //GoogleTranslateView()
+            CameraPermissionControllerWrapper()
         }
     }
 }
