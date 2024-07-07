@@ -19,6 +19,7 @@
 		B77A03492BDFAEA800E61633 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B77A03482BDFAEA800E61633 /* Alamofire */; };
 		B7B035462C3B37BC00C4BE44 /* CameraPermissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B035452C3B37BC00C4BE44 /* CameraPermissionController.swift */; };
 		B7B0354A2C3B473F00C4BE44 /* CameraViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B035492C3B473F00C4BE44 /* CameraViewControllerWrapper.swift */; };
+		B7B0354C2C3B513300C4BE44 /* TranslationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0354B2C3B513300C4BE44 /* TranslationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		B75AE3082BDC4DB20020B259 /* GoogleTranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateView.swift; sourceTree = "<group>"; };
 		B7B035452C3B37BC00C4BE44 /* CameraPermissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionController.swift; sourceTree = "<group>"; };
 		B7B035492C3B473F00C4BE44 /* CameraViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewControllerWrapper.swift; sourceTree = "<group>"; };
+		B7B0354B2C3B513300C4BE44 /* TranslationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			children = (
 				B7B035492C3B473F00C4BE44 /* CameraViewControllerWrapper.swift */,
 				B7B035452C3B37BC00C4BE44 /* CameraPermissionController.swift */,
+				B7B0354B2C3B513300C4BE44 /* TranslationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				B75AE3092BDC4DB20020B259 /* GoogleTranslateView.swift in Sources */,
 				B75AE2CE2BDBC85B0020B259 /* TranslateWordByCameraApp.swift in Sources */,
 				B7B035462C3B37BC00C4BE44 /* CameraPermissionController.swift in Sources */,
+				B7B0354C2C3B513300C4BE44 /* TranslationController.swift in Sources */,
 				B7B0354A2C3B473F00C4BE44 /* CameraViewControllerWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

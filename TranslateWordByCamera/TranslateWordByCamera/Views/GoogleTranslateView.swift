@@ -6,55 +6,31 @@
 //
 
 import SwiftUI
-import Alamofire
-
-var apiKey: String = "AIzaSyAda2L4HWLPIonW5zrBiMnzIzxfI507VTI"
 
 struct GoogleTranslateView: View {
     @State private var translation: String = ""
+    @State private var translationController: TranslationController = TranslationController()
     
     var body: some View {
         VStack{
             Text(translation)
             Button("Translate"){
-                translate(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                translationController.translate(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/){ result in
+                    switch result {
+                    case .success(let translatedText):
+                        print("Translated text: \(translatedText)")
+                        translation = translatedText
+                    case .failure(let error):
+                        print("Failed to translate text: \(error.localizedDescription)")
+                    }
+                }
             }
         }
         .padding()
     }
-    
-    func translate(_ text: String){
-        let parameters: [String: Any] = [
-            "q": text,
-            "target": "ru",
-            "key": apiKey
-        ]
-        AF.request("https://translation.googleapis.com/language/translate/v2",
-                   method: .post,
-                   parameters: parameters)
-            .validate()
-            .responseDecodable(of: TranslationResponse.self) {response in
-                switch response.result {
-                    case .success(let value):
-                        translation = value.data.translations.first?.translatedText ?? ""
-                    case .failure(let error):
-                        print("Failed to translate text: \(error)")
-                }
-            }
-    }
 }
 
-struct TranslationResponse: Decodable {
-    let data: TranslationData
-}
 
-struct TranslationData: Decodable {
-    let translations: [Translation]
-}
-
-struct Translation: Decodable {
-    let translatedText: String
-}
 
 #Preview {
     GoogleTranslateView()

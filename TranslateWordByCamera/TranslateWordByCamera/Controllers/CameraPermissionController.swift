@@ -8,15 +8,20 @@
 import Foundation
 import AVFoundation
 import SwiftUI
+import Vision
 
 class CameraControllerView : UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate{
     var cameraSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var captureDevice: AVCaptureDevice!
+    let textDetectionRequest = VNRecognizeTextRequest(completionHandler: nil)
+    let translationController = TranslationController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         startCameraSession()
+        // TODO add control to start text recognition
+        startTextDetection()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +65,7 @@ class CameraControllerView : UIViewController, AVCaptureVideoDataOutputSampleBuf
     
     func showCameraPermissionDenyAlert(){
         let alert = UIAlertController(title: "Permission is required to access camera",
-                                      message: "Please enable access to the camera in Setting",
+                                      message: "Please enable access to the camera in Settings",
                                       preferredStyle: .alert);
         alert.addAction(UIAlertAction(title: "Open Settings", style: .default){ _ in
             if let appSettings = URL(string: UIApplication.openSettingsURLString){
@@ -96,6 +101,50 @@ class CameraControllerView : UIViewController, AVCaptureVideoDataOutputSampleBuf
         view.layer.addSublayer(previewLayer)
         
         cameraSession.startRunning()
+    }
+    
+    func startTextDetection(){
+        textDetectionRequest.recognitionLevel = .accurate
+        textDetectionRequest.usesLanguageCorrection = true
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+            guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+            
+            var requestOptions:[VNImageOption : Any] = [:]
+            
+            let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .up, options: requestOptions)
+            
+            do {
+                try imageRequestHandler.perform([textDetectionRequest])
+                guard let observations = textDetectionRequest.results as? [VNRecognizedTextObservation] else { return }
+                let detectedText = observations.compactMap { observation in
+                    return observation.topCandidates(1).first?.string
+                }.joined(separator: ", ")
+                
+                DispatchQueue.main.async {
+                    self.showDetectedText(detectedText)
+                }
+            } catch let error {
+                print(error)
+            }
+        }
+    func showDetectedText(_ text: String) {
+        let alertController = UIAlertController(title: "Detected Text", message: text, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alertController, animated: true)
+        translationController.translate(text) { result in
+            switch result {
+            case .success(let translatedText):
+                let alertController = UIAlertController(title: "Translated Text", message: translatedText, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alertController, animated: true)
+            case .failure(let error):
+                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alertController, animated: true)
+            }
+        }
     }
 }
 
