@@ -8,7 +8,7 @@
 import SwiftUI
 import Alamofire
 
-var apiKey: String = "AIzaSyBGEAcdHI-Kw0ltEUdcmroF7pFboOFYvcg"
+var apiKey: String = "AIzaSyAda2L4HWLPIonW5zrBiMnzIzxfI507VTI"
 
 struct GoogleTranslateView: View {
     @State private var translation: String = ""
