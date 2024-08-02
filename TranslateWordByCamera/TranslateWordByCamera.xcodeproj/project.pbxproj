@@ -16,8 +16,9 @@
 		B75AE3092BDC4DB20020B259 /* GoogleTranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75AE3082BDC4DB20020B259 /* GoogleTranslateView.swift */; };
 		B75AE30F2BDC61180020B259 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B75AE30E2BDC61180020B259 /* Alamofire */; };
 		B75AE3112BDC61290020B259 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B75AE3102BDC61290020B259 /* Alamofire */; };
+		B76C4B7C2C5D5C7700DE2869 /* PhotoCaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76C4B7B2C5D5C7700DE2869 /* PhotoCaptureProcessor.swift */; };
 		B77A03492BDFAEA800E61633 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B77A03482BDFAEA800E61633 /* Alamofire */; };
-		B7B035462C3B37BC00C4BE44 /* CameraPermissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B035452C3B37BC00C4BE44 /* CameraPermissionController.swift */; };
+		B7B035462C3B37BC00C4BE44 /* CameraControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B035452C3B37BC00C4BE44 /* CameraControllerView.swift */; };
 		B7B0354A2C3B473F00C4BE44 /* CameraViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B035492C3B473F00C4BE44 /* CameraViewControllerWrapper.swift */; };
 		B7B0354C2C3B513300C4BE44 /* TranslationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B0354B2C3B513300C4BE44 /* TranslationController.swift */; };
 /* End PBXBuildFile section */
@@ -64,7 +65,8 @@
 		B75AE2E92BDBC85E0020B259 /* TranslateWordByCameraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateWordByCameraUITests.swift; sourceTree = "<group>"; };
 		B75AE2EB2BDBC85E0020B259 /* TranslateWordByCameraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateWordByCameraUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B75AE3082BDC4DB20020B259 /* GoogleTranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslateView.swift; sourceTree = "<group>"; };
-		B7B035452C3B37BC00C4BE44 /* CameraPermissionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermissionController.swift; sourceTree = "<group>"; };
+		B76C4B7B2C5D5C7700DE2869 /* PhotoCaptureProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureProcessor.swift; sourceTree = "<group>"; };
+		B7B035452C3B37BC00C4BE44 /* CameraControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControllerView.swift; sourceTree = "<group>"; };
 		B7B035492C3B473F00C4BE44 /* CameraViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewControllerWrapper.swift; sourceTree = "<group>"; };
 		B7B0354B2C3B513300C4BE44 /* TranslationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,7 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				B7B035492C3B473F00C4BE44 /* CameraViewControllerWrapper.swift */,
-				B7B035452C3B37BC00C4BE44 /* CameraPermissionController.swift */,
+				B7B035452C3B37BC00C4BE44 /* CameraControllerView.swift */,
+				B76C4B7B2C5D5C7700DE2869 /* PhotoCaptureProcessor.swift */,
 				B7B0354B2C3B513300C4BE44 /* TranslationController.swift */,
 			);
 			path = Controllers;
@@ -343,7 +346,8 @@
 			files = (
 				B75AE3092BDC4DB20020B259 /* GoogleTranslateView.swift in Sources */,
 				B75AE2CE2BDBC85B0020B259 /* TranslateWordByCameraApp.swift in Sources */,
-				B7B035462C3B37BC00C4BE44 /* CameraPermissionController.swift in Sources */,
+				B76C4B7C2C5D5C7700DE2869 /* PhotoCaptureProcessor.swift in Sources */,
+				B7B035462C3B37BC00C4BE44 /* CameraControllerView.swift in Sources */,
 				B7B0354C2C3B513300C4BE44 /* TranslationController.swift in Sources */,
 				B7B0354A2C3B473F00C4BE44 /* CameraViewControllerWrapper.swift in Sources */,
 			);
