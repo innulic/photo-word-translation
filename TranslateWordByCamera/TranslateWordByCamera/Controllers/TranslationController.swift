@@ -8,11 +8,15 @@
 import Foundation
 import Alamofire
 
-var apiKey: String = "AIzaSyAda2L4HWLPIonW5zrBiMnzIzxfI507VTI"
+var apiKey: String = Configuration.shared.googleApiKey;
 
 class TranslationController
 {
     func translate(_ text: String, completion: @escaping (Result<String, Error>) -> Void){
+        if(apiKey.isEmpty) {
+            print("API Key not found")
+            return;
+        }
         let parameters: [String: Any] = [
             "q": text,
             "target": "ru",
