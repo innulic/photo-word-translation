@@ -131,7 +131,7 @@ class CameraControllerView : UIViewController, AVCaptureVideoDataOutputSampleBuf
         let viewHight = view.bounds.height;
         let frameWidth = viewWidth * 0.35
         let frameHight = viewHight * 0.1
-        var frame = CGRect(x: (viewWidth - frameWidth) / 2, y: (viewHight - frameHight) / 2, width: frameWidth, height: frameHight)
+        let frame = CGRect(x: (viewWidth - frameWidth) / 2, y: (viewHight - frameHight) / 2, width: frameWidth, height: frameHight)
         squareFrameView = ResiziableOverlayView(frame: frame);
         squareFrameView.layer.borderColor = UIColor.yellow.cgColor
         squareFrameView.layer.borderWidth = 2

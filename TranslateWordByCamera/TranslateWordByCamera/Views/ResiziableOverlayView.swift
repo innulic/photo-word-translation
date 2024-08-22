@@ -11,34 +11,35 @@ import UIKit
 class ResiziableOverlayView: UIView{
     
     private let corners = [UIView(), UIView(), UIView(), UIView()]
-    private let cornerSize = 20.0
+//    private let borders = [UIView(), UIView(), UIView(), UIView()]
+    private let cornerSize = 50.0
     private var startFrame: CGRect = .zero
     private var panStartPoint: CGPoint = .zero
     private var resizingCorner: UIView?
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupCorners();
+        setupCornersAndBorders();
         setupGestureRecognition();
     }
     
     override required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupCorners()
+        setupCornersAndBorders()
         setupGestureRecognition();
     }
     
-    private func setupCorners(){
+    private func setupCornersAndBorders(){
         for corner in corners{
-            corner.backgroundColor = .blue
             corner.frame.size = CGSize(width: cornerSize, height: cornerSize)
             corner.isUserInteractionEnabled = true
             addSubview(corner)
         }
-        positionCorners();
+        positionCornersAndBorders();
     }
     
-    private func positionCorners(){
+    private func positionCornersAndBorders(){
         for (index, corner) in corners.enumerated(){
             let x = index % 2 == 0 ? 0.0 : bounds.width - cornerSize
             let y = index < 2 ? 0.0 : bounds.height - cornerSize
@@ -51,6 +52,8 @@ class ResiziableOverlayView: UIView{
             var recognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
             corner.addGestureRecognizer(recognizer)
         }
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
+        addGestureRecognizer(pinch)
     }
     
     @objc private func handlePan(_ gesture: UIPanGestureRecognizer){
@@ -68,9 +71,30 @@ class ResiziableOverlayView: UIView{
             let newX = corner === subviews[0] || corner === subviews[2] ? startFrame.maxX - newWidth : startFrame.minX
             let newY = corner === subviews[0] || corner === subviews[1] ? startFrame.maxY - newHeight : startFrame.minY
             frame = CGRect(x: newX, y: newY, width: newWidth, height: newHeight)
-            positionCorners()
+            positionCornersAndBorders()
         default:
             break
         }
     }
+    
+    @objc private func handlePinch(_ gesture: UIPinchGestureRecognizer) {
+            guard gesture.view != nil else { return }
+            
+            switch gesture.state {
+            case .began, .changed:
+                let scale = gesture.scale
+                let newWidth = bounds.width * scale
+                let newHeight = bounds.height * scale
+                let newX = frame.origin.x - (newWidth - bounds.width) / 2
+                let newY = frame.origin.y - (newHeight - bounds.height) / 2
+                
+                if newWidth >= cornerSize * 2 && newHeight >= cornerSize * 2 {
+                    frame = CGRect(x: newX, y: newY, width: newWidth, height: newHeight)
+                    positionCornersAndBorders()
+                }
+                gesture.scale = 1
+            default:
+                break
+            }
+        }
 }
