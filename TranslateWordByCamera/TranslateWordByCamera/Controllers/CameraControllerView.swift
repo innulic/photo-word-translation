@@ -126,13 +126,13 @@ class CameraControllerView : UIViewController, AVCaptureVideoDataOutputSampleBuf
     }
     
     func addTextFrameOverlay(){
-        squareFrameView = UIView();
         // add this to the settings
         let viewWidth = view.bounds.width;
         let viewHight = view.bounds.height;
         let frameWidth = viewWidth * 0.35
         let frameHight = viewHight * 0.1
-        squareFrameView.frame = CGRect(x: (viewWidth - frameWidth) / 2, y: (viewHight - frameHight) / 2, width: frameWidth, height: frameHight)
+        let frame = CGRect(x: (viewWidth - frameWidth) / 2, y: (viewHight - frameHight) / 2, width: frameWidth, height: frameHight)
+        squareFrameView = ResiziableOverlayView(frame: frame);
         squareFrameView.layer.borderColor = UIColor.yellow.cgColor
         squareFrameView.layer.borderWidth = 2
         squareFrameView.isUserInteractionEnabled = true;
