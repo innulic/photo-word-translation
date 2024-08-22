@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B75075DF2C77CA62000656F1 /* ResiziableOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75075DE2C77CA62000656F1 /* ResiziableOverlayView.swift */; };
 		B75AE2CE2BDBC85B0020B259 /* TranslateWordByCameraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75AE2CD2BDBC85B0020B259 /* TranslateWordByCameraApp.swift */; };
 		B75AE2D22BDBC85E0020B259 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75AE2D12BDBC85E0020B259 /* Assets.xcassets */; };
 		B75AE2D62BDBC85E0020B259 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75AE2D52BDBC85E0020B259 /* Preview Assets.xcassets */; };
@@ -57,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B75075DE2C77CA62000656F1 /* ResiziableOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResiziableOverlayView.swift; sourceTree = "<group>"; };
 		B75AE2CA2BDBC85B0020B259 /* TranslateWordByCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranslateWordByCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75AE2CD2BDBC85B0020B259 /* TranslateWordByCameraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateWordByCameraApp.swift; sourceTree = "<group>"; };
 		B75AE2D12BDBC85E0020B259 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				B75AE3082BDC4DB20020B259 /* GoogleTranslateView.swift */,
+				B75075DE2C77CA62000656F1 /* ResiziableOverlayView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				B76C4B7E2C602C9500DE2869 /* Configuration.swift in Sources */,
 				B76C4B7C2C5D5C7700DE2869 /* PhotoCaptureProcessor.swift in Sources */,
 				B7B035462C3B37BC00C4BE44 /* CameraControllerView.swift in Sources */,
+				B75075DF2C77CA62000656F1 /* ResiziableOverlayView.swift in Sources */,
 				B7B0354C2C3B513300C4BE44 /* TranslationController.swift in Sources */,
 				B7B0354A2C3B473F00C4BE44 /* CameraViewControllerWrapper.swift in Sources */,
 			);
